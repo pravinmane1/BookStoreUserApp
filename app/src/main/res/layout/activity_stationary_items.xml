@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StationaryItemsActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:id="@+id/coordinator">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/appbarlayout">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="casual"
+                android:background="@color/white"
+                android:theme="@style/ToolbarTheme"
+                android:minHeight="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:titleTextColor="@color/black"
+                app:title="Stationary" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Spinner
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:backgroundTint="@color/green"
+                    android:id="@+id/branch_spinner"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Spinner
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:backgroundTint="@color/green"
+                    android:layout_gravity="center"
+                    android:id="@+id/year_spinner"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="10"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/sem_spinner"
+                    android:layout_weight="3.5"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/green" />
+                <Spinner
+                    android:id="@+id/publication_spinner"
+                    android:layout_weight="3.5"
+
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/green" />
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/search"
+                    android:layout_weight="3"
+
+                    android:layout_width="65dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ripple"
+                    android:text="search"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/initial"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search_icon"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/light_gray"/>
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/andika_font"
+            android:textStyle="bold"
+            android:id="@+id/show_cart_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 items in Cart"
+            android:textColor="@color/blue"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:layout_marginTop="-8dp"
+            android:layout_marginBottom="-10dp"
+            android:layout_alignTop="@+id/show_cart_count"
+            android:layout_alignBottom="@+id/show_cart_count"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/show_cart_count"
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/ic_action_forward_arrow"/>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".CartActivity">
+
+    <RelativeLayout
+        android:id="@+id/coordinator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ToolbarTheme"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Cart"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appbarlayout"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/rl_return_books"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/borderless_blue">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:textColor="@color/black"
+                                android:id="@+id/tv_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:text="Get Upto 800rs Off by returning Your Last year books" />
+
+
+                            <Button
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:id="@+id/btn_short_desc"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/borderless_blue"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@+id/tv_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" Get Upto ₹ 800 OFF "/>
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:layout_margin="5dp"
+                    android:id="@+id/rl_return_books_success"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/borderless_blue">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textSize="18dp"
+                                android:textColor="@color/fire"
+                                android:id="@+id/tv_desc2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Congratulations you have got ₹ 840 off" />
+
+
+                            <TextView
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:id="@+id/tv_desc3"
+                                android:layout_below="@+id/tv_desc2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_margin="5dp"
+                                android:text="Make sure you have selected books ready at the time of delivery of new books" />
+
+
+                            <TextView
+                                android:layout_margin="5dp"
+                                android:layout_toLeftOf="@+id/tv_remove"
+                                android:layout_below="@+id/tv_desc3"
+                                android:id="@+id/tv_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/borderless_colored"
+                                android:fontFamily="@font/andika_font"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="View"
+                                android:textColor="@color/blue"
+                                android:textSize="16sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_margin="5dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_below="@+id/tv_desc3"
+                                android:id="@+id/tv_remove"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/borderless_colored"
+                                android:fontFamily="@font/andika_font"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="Remove"
+                                android:textColor="@color/red"
+                                android:textSize="16sp"
+                                tools:ignore="HardcodedText" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:overScrollMode="never"
+                    android:visibility="gone" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    shimmer:duration="800">
+
+                    <!-- Adding 3 rows of placeholders -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/cart_placeholder" />
+
+                        <include layout="@layout/cart_placeholder" />
+
+                        <include layout="@layout/cart_placeholder" />
+
+                    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/price_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/andika_font"
+                        android:paddingStart="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="8dp"
+                        android:text="PRICE DETAILS"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <View
+                        android:id="@+id/SplitLine_h"
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:background="@color/lightwhite" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp">
+
+                            <TextView
+                                android:id="@+id/total_items"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:fontFamily="@font/andika_font"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="Price (6 items)"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/amount_items"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:fontFamily="@font/andika_font"
+                                android:gravity="end"
+                                android:paddingStart="10sp"
+                                android:paddingEnd="10dp"
+                                android:text="1000"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:weightSum="10">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:paddingStart="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/andika_font"
+                                    android:paddingEnd="5dp"
+                                    android:text="Delivery"
+                                    tools:ignore="HardcodedText,RtlSymmetry" />
+
+                                <TextView
+                                    android:id="@+id/pin_view"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/andika_font"
+                                    android:text="411001"
+                                    android:textColor="@color/blue"
+                                    tools:ignore="HardcodedText" />
+
+
+                                <TextView
+                                    android:id="@+id/info"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/andika_font"
+                                    android:text="(Change)"
+                                    android:textColor="@color/blue"
+                                    tools:ignore="HardcodedText" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/amount_delivery"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/andika_font"
+                                android:gravity="end"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="40"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_day_for_delivery"
+                            android:paddingStart="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/andika_font"
+                            android:paddingEnd="5dp"
+                            android:text="(Delivery in 1 Day)"
+                            tools:ignore="HardcodedText,RtlSymmetry" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:fontFamily="@font/andika_font"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="Total Amount"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/amount_total"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:fontFamily="@font/andika_font"
+                                android:gravity="end|center_vertical"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="1040"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                tools:ignore="HardcodedText" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/SplitLine_hr"
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:background="@color/lightwhite" />
+
+                    <TextView
+                        android:id="@+id/amount_savings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/andika_font"
+                        android:paddingStart="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="8dp"
+                        android:text="You will save 550 on this order"
+                        android:textColor="@color/green"
+                        tools:ignore="HardcodedText" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_ymal"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/andika_font"
+                    android:paddingStart="10dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="8dp"
+                    android:text="YOU MAY ALSO LIKE"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_ymal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:overScrollMode="never"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/no_item_in_cart"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="licking_cat.json"
+            app:lottie_loop="false" />
+
+        <TextView
+            android:id="@+id/no_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_item_in_cart"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-40dp"
+            android:text="No items in Cart"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="HardcodedText" />
+
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:baselineAligned="false"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:targetApi="lollipop">
+
+        <View
+            android:id="@+id/SplitLine"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/lime" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/payable_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15sp"
+                    android:fontFamily="@font/andika_font"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Loading..."
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/continue_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/borderless_colored"
+                    android:fontFamily="@font/andika_font"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Continue"
+                    android:textColor="@color/blue"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
