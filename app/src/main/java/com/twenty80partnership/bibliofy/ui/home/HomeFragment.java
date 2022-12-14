@@ -113,7 +113,7 @@ public class HomeFragment extends Fragment {
 
         firebaseSearchYouMayAlsoLike(query1);
 
-        //////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////
         viewPager2 = root.findViewById(R.id.view_pager_image_slider);
 
 
@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-        ////////////////////////////////////////////////
+        ////////////////////////////////////////////////////
 
 
         Intent service = new Intent(getActivity(), ListenOrder.class);
